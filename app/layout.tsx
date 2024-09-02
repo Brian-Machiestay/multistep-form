@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navigation from "./components/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,43 +15,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex flex-col md:flex-row md:justify-center md:w-[60vw] md:h-[80vh] md:mx-[auto] md:mt-[4%] md:bg-white md:rounded-lg">
-          <section className="md:h-full md:justify-start md:flex md:flex-row md:w-full md:p-4 md:rounded">
-            <div className="md:h-full md:bg-[url('/bg-sidebar-desktop.svg')] md:rounded-lg md:items-start md:w-[35%] md:flex-col md:justify-start md:p-8 gap-8 bg-[url('/bg-sidebar-mobile.svg')] w-full bg-center bg-no-repeat min-h-40 flex justify-center items-center gap-5">
-              <div className="md:flex">
-                <button className="rounded-full w-8 h-8 bg-teal-200 md:mr-4">1</button>
-                <div className="hidden md:block">
-                  <h2 className="text-zinc-200">STEP 1</h2>
-                  <p className="text-white uppercase">your info</p>
-                </div>
-              </div>
-              <div className="md:flex">
-                <button className="rounded-full w-8 h-8 bg-teal-200 md:mr-4">2</button>
-                <div className="hidden md:block">
-                  <h2 className="text-zinc-200">STEP 2</h2>
-                  <p className="text-white">select plan</p>
-                </div>
-              </div>
-              <div className="md:flex">
-                <button className="rounded-full w-8 h-8 bg-teal-200 md:mr-4">3</button>
-                <div className="hidden md:block">
-                  <h2 className="text-zinc-200">STEP 3</h2>
-                  <p className="text-white">add-ons</p>
-                </div>
-              </div>
-              <div className="md:flex">
-                <button className="rounded-full w-8 h-8 bg-teal-200 md:mr-4">4</button>
-                <div className="hidden md:block">
-                  <h2 className="text-zinc-200">STEP 4</h2>
-                  <p className="text-white">summary</p>
-                </div>
-              </div>
-            </div>
-            {children}
-          </section>
+        <main className="flex flex-col md:flex-row md:justify-center md:w-[60vw] md:h-[80vh] md:mx-[auto] md:mt-[4%] md:bg-white md:rounded-lg lg:h-fit my-[auto]">
+        { children }
         </main>
       </body>
     </html>
