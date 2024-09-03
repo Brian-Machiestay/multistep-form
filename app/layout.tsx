@@ -18,8 +18,8 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="flex flex-col md:flex-row md:justify-center md:w-[60vw] md:h-[80vh] md:mx-[auto] md:mt-[4%] md:bg-white md:rounded-lg lg:h-fit my-[auto]">
+      <body className={`${inter.className} flex justify-center content-center md:mt-[4%]`}>
+        <main className="flex flex-col md:flex-row md:justify-center md:w-[60vw] md:h-full md:mx-[auto] md:mt-[4%] md:bg-white md:rounded-lg w-full">
         { children }
         </main>
       </body>
