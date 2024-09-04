@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(../public/styles/font.css);
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -19,6 +20,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--background-start-rgb));
+  font-family: ubuntu, system-ui, 'Segoe UI',-apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /*
   background: linear-gradient(
       to bottom,

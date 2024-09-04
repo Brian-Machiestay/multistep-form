@@ -5,17 +5,22 @@ import advanced from '../../public/icon-advanced.svg';
 
 export default function StepTwo ({step, setActiveStep}: {step: number, setActiveStep: CallableFunction}) {
 
-      const handleClick: CallableFunction = (e: React.SyntheticEvent) => {
+      function handleClick (e: React.SyntheticEvent) : void {
             e.preventDefault();
             if (step === 4) return
             setActiveStep(step + 1);
       }
 
+      const goBack = (e: React.SyntheticEvent) => {
+            e.preventDefault();
+            setActiveStep(step - 1);
+      }
+
 
       return (
       <>
-            <h1 className="text-3xl font-bold">Select Your Plan</h1>
-            <p>You have the option of yearly or monthly billing</p>
+            <h1 className="text-3xl font-bold mt-8 mb-4">Select Your Plan</h1>
+            <p className="text-gray-500">You have the option of yearly or monthly billing</p>
             <div className="flex flex-col justify-between mt-10 md:flex-row md:flex-row-reverse flex-wrap-reverse flex-col-reverse group">
                   <div className='w-full flex justify-center items-center bg-gray-200 rounded-lg py-2 mt-4'>
                         <p className='mr-4'>monthly</p>
@@ -26,7 +31,7 @@ export default function StepTwo ({step, setActiveStep}: {step: number, setActive
                         </label>
                         <p className='ml-4'>yearly</p>
                   </div>
-                  <button className='border md:w-[30%] md:h-52 h-44 p-4 rounded-xl hover:ring-1 hover:bg-gray-100 ring-violet-500 flex md:flex-col flex-row w-full active:bg-gray-200 h-fit mb-4'>
+                  <button className='border md:w-[30%] md:h-52 h-44 p-4 rounded-xl hover:ring-1 focus:bg-gray-100 focus:ring-violet-500 focus:ring-1 active:bg-gray-100 ring-violet-500 flex md:flex-col flex-row w-full active:bg-gray-200 h-fit mb-4' onClick={(e) => e.preventDefault()}>
                         <Image src={pro} height={40} width={40} alt='arcade' className='mr-4 md:m-0' />
                         <div className='mt-[auto] text-start'>
                               <p className='font-bold'>Pro</p>
@@ -35,7 +40,7 @@ export default function StepTwo ({step, setActiveStep}: {step: number, setActive
                               <p className='font-bold group-has-[:checked]:block hidden'>2 months free</p>
                         </div>
                   </button>
-                  <button className='border md:w-[30%] md:h-52 h-44 p-4 rounded-xl hover:ring-1 hover:bg-gray-100 ring-violet-500 flex md:flex-col flex-row w-full active:bg-gray-200 h-fit mb-4'>
+                  <button className='border md:w-[30%] md:h-52 h-44 p-4 rounded-xl hover:ring-1 focus:bg-gray-100 focus:ring-violet-500 focus:ring-1 active:bg-gray-100 ring-violet-500 flex md:flex-col flex-row w-full active:bg-gray-200 h-fit mb-4' onClick={(e) => e.preventDefault()}>
                         <Image src={advanced} height={40} width={40} alt='arcade' className='mr-4 md:m-0' />
                         <div className='mt-[auto] text-start'>
                               <p className='font-bold'>Advanced</p>
@@ -44,7 +49,7 @@ export default function StepTwo ({step, setActiveStep}: {step: number, setActive
                               <p className='font-bold group-has-[:checked]:block hidden'>2 months free</p>
                         </div>
                   </button>
-                  <button className='border md:w-[30%] md:h-52 h-44 p-4 rounded-xl hover:ring-1 hover:bg-gray-100 ring-violet-500 flex md:flex-col flex-row w-full active:bg-gray-200 h-fit mb-4'>
+                  <button className='border md:w-[30%] md:h-52 h-44 p-4 rounded-xl hover:ring-1 focus:bg-gray-100 focus:ring-violet-500 focus:ring-1 ring-violet-500 flex md:flex-col flex-row w-full active:bg-gray-200 h-fit mb-4' onClick={(e) => e.preventDefault()}>
                         <Image src={arcade} height={40} width={40} alt='arcade' className='mr-4 md:m-0' />
                         <div className='mt-[auto] text-start'>
                               <p className='font-bold'>Arcade</p>
@@ -54,7 +59,10 @@ export default function StepTwo ({step, setActiveStep}: {step: number, setActive
                         </div>
                   </button>
             </div>
-            <button className="bg-blue-900 w-fit p-2 rounded-lg text-white px-4 mt-[auto] ml-[auto]" onClick={handleClick}>Next Step</button>
-      </>
+            <div className="flex md:mt-[auto] my-8 md:my-0">
+                <button className="w-fit p-2 rounded-lg text-gray-500 font-bold px-4" onClick={goBack}>Go Back</button>
+                <button className="bg-blue-900 w-fit p-2 rounded-lg text-white px-4 mt-[auto] ml-[auto]" onClick={handleClick}>Next Step</button>
+            </div>
+           </>
       )
 }

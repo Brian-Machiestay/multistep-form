@@ -4,9 +4,13 @@ import StepOne from './components/stepOne';
 import StepTwo from './components/stepTwo';
 import Navigation from './components/navigation';
 import { useState } from 'react';
+import StepThree from './components/stepThree';
+import StepFour from './components/stepFour';
+import Thankyou from './components/thankyou';
 
 export default function Home() {
   const [step, setStep] = useState(1);
+  const [data, updateData] = useState();
 
   const setActiveStep = (step : number) => {
     setStep(step);
@@ -15,6 +19,9 @@ export default function Home() {
   const getStepComponent = () => {
     if (step === 1) return <StepOne step={step} setActiveStep={setActiveStep} />
     if (step === 2) return <StepTwo step={step} setActiveStep={setActiveStep} />
+    if (step === 3) return <StepThree step={step} setActiveStep={setActiveStep} />
+    if (step === 4) return <StepFour step={step} setActiveStep={setActiveStep} />
+    if (step === 5) return <Thankyou />
   }
 
   return (
